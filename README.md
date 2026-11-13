@@ -173,19 +173,3 @@ Two photographs supplied for the portfolio are included in the `assets/` folder:
 
 <div align="center">
 
-**Personal portfolio repository:** [rapetisaisrinuvasrao/Portfolio_project](https://github.com/rapetisaisrinuvasrao/Portfolio_project)
-
-
-</div>
-"""
-
-(package / "README.md").write_text(readme, encoding="utf-8")
-(base / "README.md").write_text(readme, encoding="utf-8")
-
-zip_path = base / "Sai_Srinuvas_Rao_GitHub_README_Package.zip"
-with ZipFile(zip_path, "w", ZIP_DEFLATED) as zf:
-    zf.write(package / "README.md", "README.md")
-    for image_path in assets.iterdir():
-        zf.write(image_path, f"assets/{image_path.name}")
-
-print("Created README.md and ZIP package with both supplied profile photos.")
